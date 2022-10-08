@@ -4,8 +4,8 @@
     </div>
     <div style="margin: 20px;">
         <!-- <button @click="loadMore" v-if="currentPage < temp.length">load more</button> -->
-        <button @click="loadMore" style="margin-top: 10px;">Load More</button>
-        <button @click="loadBefore">Load Before</button>
+        <button @click="loadMore" style="margin: 10px;">Load More</button>
+        <button @click="loadBefore" v-if="currentPage >= 2">Load Before</button>
     </div>
 
 </template>
