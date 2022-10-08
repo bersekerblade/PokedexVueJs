@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="../assets/logo-pokedex.png" class="logo">
+
+    <Suspense>
+      <template #default>
+        <Pokemons />
+      </template>
+      <template #fallback>
+        <Loading />
+      </template>
+    </Suspense>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Pokemons from "@/components/Pokemons"
+import Loading from "@/components/Loading"
 
 export default {
-  name: 'HomeView',
+  name: 'homeview',
   components: {
-    HelloWorld
+    Pokemons,
+    Loading
   }
 }
 </script>
+
+<style>
+  .logo{
+    height: 100px;
+  }
+</style>
