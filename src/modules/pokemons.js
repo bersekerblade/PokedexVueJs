@@ -24,5 +24,17 @@ export default function usePokemons(){
         }
     }
 
-    return{ ...toRefs(state), load }
+    const pencarian = (searchKey) => {
+        if (searchKey){
+            state.temp = [
+                state.pokemons.find(function(item){
+                    return item.Name == searchKey.toLowerCase();
+                })
+            ];
+        } else {
+            state.temp = state.pokemons;
+        }
+    }
+
+    return{ ...toRefs(state), load, pencarian }
 }

@@ -4,8 +4,8 @@
     </div>
     <div style="margin: 20px;">
         <!-- <button @click="loadMore" v-if="currentPage < temp.length">load more</button> -->
-        <button @click="loadMore" style="margin: 10px;">Load More</button>
-        <button @click="loadBefore" v-if="currentPage >= 2">Load Before</button>
+        <button @click="loadMore" v-if="pageCount >= 101" class="button">Load More</button>
+        <button @click="loadBefore" v-if="currentPage >= 2" class="button">Load Before</button> 
     </div>
 
 </template>
@@ -50,7 +50,6 @@ export default {
         
     },
 
-    
     computed: {
     totalResults() {
       return Object.keys(this.temp).length;
@@ -85,5 +84,12 @@ export default {
         flex-wrap: wrap;
         justify-content: space-between;
         padding-top: 30px;
+    }
+    .button{
+        margin: 5px;
+        color: whitesmoke;
+        background: green;
+        box-shadow: 0 4px 8px 0 rgba( 0, 0, 0, 0.2);
+        cursor: pointer;
     }
 </style>

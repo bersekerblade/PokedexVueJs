@@ -4,7 +4,7 @@
         <div class="container">
             <img :src="imageLink" class="pokeImage" />
             <h4>{{ pokemon.Name }}</h4>
-            <h6>{{ pokemon.Type1 }} {{ pokemon.Type2 }}</h6>
+            <h6 v-bind:style="{'color':color}">{{ pokemon.Type1 }} {{ pokemon.Type2 }}</h6>
         </div>
     </div>
 
@@ -23,8 +23,22 @@ import { computed } from 'vue'
             // http://localhost/pokemon-with-images-master/pokemon-images/images/
             // https://raw.githubusercontent.com/bersekerblade/Pokemon-Source-Image/main/pokemon-images/images/
             const imageLink = computed (() => `https://raw.githubusercontent.com/bersekerblade/Pokemon-Source-Image/main/pokemon-images/images/${props.pokemon.Name}.png`);
+            const color = computed (() => {
+                if (props.pokemon.Type1 == "Grass")
+                {
+                    return "green";
+                } else if (props.pokemon.Type1 == "Fire"){
+                    return "red";
+                } else if (props.pokemon.Type1 == "Water"){
+                    return "aqua";
+                } else if (props.pokemon.Type1 == "Bug"){
+                    return "orange";
+                }
+            })
+
             return{
-                imageLink
+                imageLink,
+                color
             }
         }
     }
