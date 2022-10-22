@@ -27,6 +27,7 @@ export default {
     Pencarian
   }
 }
+   
 </script>
 
 <style>

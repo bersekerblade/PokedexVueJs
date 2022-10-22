@@ -26,11 +26,7 @@ export default function usePokemons(){
 
     const pencarian = (searchKey) => {
         if (searchKey){
-            state.temp = [
-                state.pokemons.find(function(item){
-                    return item.Name == searchKey.toLowerCase();
-                })
-            ];
+            state.temp = state.pokemons.filter(pokemon => pokemon.Name.includes(searchKey.toLowerCase()))
         } else {
             state.temp = state.pokemons;
         }

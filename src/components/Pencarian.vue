@@ -1,7 +1,7 @@
 <template>
     <div>
         <form @submit.prevent="cari">
-            <input v-model="searchKey" type="text" placeholder="cari pokemon . . .">
+            <input id="cari" v-model="searchKey" type="text" placeholder="cari pokemon . . .">
         </form>
     </div>
 </template>
@@ -16,7 +16,7 @@ export default{
         const {pencarian} = usePokemons();
 
         function cari(){
-            pencarian(searchKey.value);
+           document.getElementById("cari").innerHTML = pencarian(searchKey.value);
         }
 
         return{
